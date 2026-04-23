@@ -1,0 +1,7 @@
+.catGrid{
+    display: flex;
+    gap: 32px;
+}
+.imageWrap img{
+    max-width: 100%;
+}
