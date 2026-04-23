@@ -11,7 +11,7 @@ export default function Header() {
         <NavLink to="/" style={({isActive})=>({
             color: isActive ? 'black' : 'blue',
         })}>Main Page</NavLink>
-        <NavLink>Categories</NavLink>
+        <NavLink to="/categories">Categories</NavLink>
         <NavLink>All products</NavLink>
         <NavLink>All sales</NavLink>
       </div>

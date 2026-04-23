@@ -1,0 +1,4 @@
+.productsGrid img{
+    object-fit: cover; /* Обрезает изображение, чтобы заполнить область */
+  object-position: center; /* Центрирует изображение */
+}
