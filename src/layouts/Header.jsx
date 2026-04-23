@@ -12,8 +12,8 @@ export default function Header() {
             color: isActive ? 'black' : 'blue',
         })}>Main Page</NavLink>
         <NavLink to="/categories">Categories</NavLink>
-        <NavLink>All products</NavLink>
-        <NavLink>All sales</NavLink>
+        <NavLink to="/products/all">All products</NavLink>
+        <NavLink to="/products/sale">All sales</NavLink>
       </div>
       <NavLink to=""><img src={basketEmpty}/></NavLink>
     </div>

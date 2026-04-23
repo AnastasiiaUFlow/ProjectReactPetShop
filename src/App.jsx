@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import AllCategories from './pages/AllCategories'
 import AllProductsByCategories from './pages/AllProductsByCategories'
 import Error from './pages/Error'
+import ProductPage from './pages/ProductPage'
+import AllSAles from './pages/AllSales'
 function App() {
 
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route  path='/' element={<Home />}/>
         <Route  path='/categories' element={<AllCategories />}/>
         <Route path='/categories/:id' element={<AllProductsByCategories />}/>
+        <Route path='/products/:id' element={<ProductPage />}/>
+        <Route path='/products/sale' element={<AllSAles />}/>
         <Route path='*' element={<Error />}/>
       </Routes>
     </div>
