@@ -5,6 +5,7 @@ import ListCategories from '../layouts/ListCategories'
 import axios from 'axios'
 import FormDiscount from '../layouts/FormDiscount'
 import ProductsWithDiscount from '../layouts/ProductsWithDiscount'
+import Checkout from '../layouts/Checkout'
 export default function Home() {
   const [categories,setCategories] = useState([])
   const [products,setProducts] = useState([])
@@ -28,6 +29,7 @@ export default function Home() {
   return (
     <div style={{ padding: '0 40px' }}>
       <Header />
+      <Checkout />
       <ListCategories  categories={categories}/>
       <FormDiscount />
       <ProductsWithDiscount product={products}/>
