@@ -1,0 +1,9 @@
+.container{
+    background-color: #0D50FF}
+.formContainer{
+    display: flex;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}

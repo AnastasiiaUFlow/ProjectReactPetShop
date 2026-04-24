@@ -4,7 +4,7 @@ import Header from '../layouts/Header';
 import Footer from '../layouts/Footer';
 import { useParams } from 'react-router-dom';
 import CardProduct from '../layouts/CardProduct';
-
+import style from './AllProductsByCategories.module.css'
 export default function AllProductsByCategories() {
   const { id } = useParams();
   const [products,setProducts] = useState([])
@@ -21,7 +21,7 @@ export default function AllProductsByCategories() {
   return (
     <div>
       <Header />
-       <div className="products-grid">
+       <div className={style.productsGrid}>
         {products.map((product) => (
           <CardProduct key={product.id} {...product} />
         ))}

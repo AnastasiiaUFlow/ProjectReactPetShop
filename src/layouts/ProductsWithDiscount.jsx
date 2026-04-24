@@ -11,7 +11,7 @@ const ProductsWithDiscount =({product}) =>{
   return (
     <div>
       <h2>Discounts</h2>
-      <Link to="/discounts" className="all-discounts-btn">
+      <Link to="/products/sale" className="all-discounts-btn">
           All discounts →
         </Link>
         <div className={style.productsGrid} style={{display: 'flex', gap: '32px'}}>

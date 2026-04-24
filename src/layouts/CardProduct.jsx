@@ -13,7 +13,7 @@ export default function CardProduct({id,title,image,price,discont_price}) {
     <div className="product-card">
       <Link to={`/products/${id}`}>
         <div className="image-wrapper">
-          <img src={`http://localhost:3333${image}`} alt={title} />
+          <img src={`http://localhost:3333${image}`} alt={title} width={'316px'}/>
 
           {discount && (
             <div className="discount-badge">
