@@ -3,8 +3,10 @@ import Header from '../layouts/Header'
 import Footer from '../layouts/Footer'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
+import { useDispatch } from 'react-redux';
+import { addToCart } from "../components/slice";
 export default function ProductPage() {
+    const dispatch= useDispatch();
     const { id } = useParams();
   const [products,setProducts] = useState([])
     useEffect(()=>{
@@ -22,7 +24,7 @@ export default function ProductPage() {
       <Header />
         <div className="catGrid">
 {products.map((product) => (
-          <div>
+          <div key={product.id}>
              <div className="imageWrap">
               <img src={`http://localhost:3333${product.image}`} alt={product.title} />
             </div>
@@ -31,9 +33,13 @@ export default function ProductPage() {
             <p>{product.description}</p>
             <h1>{product.discont_price}</h1>
             <h3 style={{textDecoration: 'line-through'}}>{product.price}</h3>
+            <button onClick={() => dispatch(addToCart(product))}>
+  Add to cart
+</button>
           </div>
         ))}
         </div>
+        
       <Footer />
     </div>
   )

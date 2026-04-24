@@ -1,7 +1,10 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
+import { addToCart } from '../components/slice';
 
 export default function CardProduct({id,title,image,price,discont_price}) {
+  const dispatch = useDispatch()
     const discount =
     discont_price &&
     Math.round(100 - (discont_price / price) * 100);
@@ -37,8 +40,8 @@ export default function CardProduct({id,title,image,price,discont_price}) {
         </div>
       </Link>
 
-      {/* 🔥 КНОПКА ПРИ НАВЕДЕНИИ */}
-      <button className="add-to-cart">
+
+      <button onClick={() => dispatch(addToCart(product))}>
         Add to cart
       </button>
     </div>
