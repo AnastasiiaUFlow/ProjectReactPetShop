@@ -11,7 +11,7 @@ const ListCategories =({categories}) => {
       <div className='catContainer'>
         <div className='header'>
             <h2>Categories</h2>
-            <Link to="/categories" className="allCategories">
+            <Link to="/categories/" className="allCategories">
           All categories
         </Link>
         </div>
@@ -19,7 +19,7 @@ const ListCategories =({categories}) => {
         <div className={style.catGrid}>
 {firstFour.map((category) => (
           <Link
-            to={`/categories/${category.slug}`}
+            to={`/categories/${category.id}`}
             key={category.id}
             className="category-card"
           >

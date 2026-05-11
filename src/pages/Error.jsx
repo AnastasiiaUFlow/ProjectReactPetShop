@@ -9,7 +9,7 @@ export default function Error() {
    const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/'); // Переход на /target-path
+    navigate('/');
   };
   return (
     <div style={{ padding: '0 40px' }}>
@@ -21,10 +21,10 @@ export default function Error() {
           <p>We’re sorry, the page you requested could not be found.
 Please go back to the homepage.</p>
           <Button variant="contained" sx={{
-    backgroundColor: '#0D50FF', // Свой цвет фона
-    padding: '12px 50px',       // Свои отступы (padding)
+    backgroundColor: '#0D50FF',
+    padding: '12px 50px',
     '&:hover': {
-      backgroundColor: '#0d3db6', // Цвет при наведении
+      backgroundColor: '#0d3db6',
     },
   }} onClick={handleClick}>Go home</Button>
         </div>

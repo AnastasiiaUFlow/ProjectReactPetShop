@@ -27,7 +27,7 @@ export default function Home() {
   }, [])
   
   return (
-    <div style={{ padding: '0 40px' }}>
+    <div style={{ padding: '0 40px', display: 'flex', flexDirection:'column', gap:'20px' }}>
       <Header />
       <Checkout />
       <ListCategories  categories={categories}/>

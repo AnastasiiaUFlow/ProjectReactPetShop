@@ -9,7 +9,6 @@ export default function Cart() {
   const items = useSelector((state) => state.cart.items);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Настройка react-hook-form
   const {
     register,
     handleSubmit,
@@ -22,7 +21,6 @@ export default function Cart() {
     return sum + price * item.quantity;
   }, 0);
 
-  // Обработчик отправки формы
   const onSubmit = async (data) => {
     const orderData = {
       user: data,
@@ -32,9 +30,8 @@ export default function Cart() {
 
     try {
       await axios.post('http://localhost:3333/order/send', orderData);
-      setIsModalOpen(true); // Открываем модалку
-      reset(); // Очищаем форму
-      // Здесь также можно добавить dispatch для очистки корзины в Redux
+      setIsModalOpen(true);
+      reset();
     } catch (error) {
       console.error('Ошибка при отправке заказа:', error);
       alert('Не удалось отправить заказ');
@@ -49,7 +46,6 @@ export default function Cart() {
         <p>Cart is empty</p>
       ) : (
         <div className="cart-container" style={{ display: 'flex', gap: '20px' }}>
-          {/* Список товаров */}
           <div className="cart-list" style={{ flex: 2 }}>
             {items.map((item) => {
               const price = item.discont_price || item.price;
@@ -67,7 +63,6 @@ export default function Cart() {
             })}
           </div>
 
-          {/* Форма оформления заказа */}
           <div className="order-form" style={{ flex: 1, padding: '20px', border: '1px solid #000' }}>
             <h2>Order Details</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -105,7 +100,7 @@ export default function Cart() {
                 <h3>Total: ${totalPrice.toFixed(2)}</h3>
               </div>
 
-              <button type="submit" style={{ width: '100%', padding: '10px', background: 'green', color: '#fff' }}>
+              <button type="submit" style={{ width: '100%', padding: '10px', background: '#0D50FF', color: '#fff' }}>
                 Order
               </button>
             </form>
@@ -113,7 +108,6 @@ export default function Cart() {
         </div>
       )}
 
-      {/* Модальное окно */}
       {isModalOpen && (
         <div className="modal-overlay" style={modalStyles.overlay}>
           <div className="modal-content" style={modalStyles.content}>
@@ -128,7 +122,6 @@ export default function Cart() {
   );
 }
 
-// Простейшие стили для модалки
 const modalStyles = {
   overlay: {
     position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
