@@ -1,0 +1,6 @@
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 колонки как на скрине */
+  gap: 30px;
+  padding: 40px;
+}

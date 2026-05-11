@@ -1,49 +1,50 @@
-import React from 'react'
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { addToCart } from '../components/slice';
+import style from './CardProduct.module.css';
 
-export default function CardProduct({id,title,image,price,discont_price}) {
-  const dispatch = useDispatch()
-    const discount =
-    discont_price &&
-    Math.round(100 - (discont_price / price) * 100);
+export default function CardProduct({ id, title, image, price, discont_price }) {
+  const dispatch = useDispatch();
+  
+  const discount = discont_price && Math.round(100 - (discont_price / price) * 100);
+
+  const productData = { id, title, image, price, discont_price };
 
   return (
-    <div className="product-card">
-      <Link to={`/products/${id}`}>
-        <div className="image-wrapper">
-          <img src={`http://localhost:3333${image}`} alt={title} width={'316px'}/>
+    <div className={style.productCard}>
+      <div className={style.imageWrapper}>
+        <Link to={`/products/${id}`}>
+          <img src={`http://localhost:3333${image}`} alt={title} className={style.productImg} />
+        </Link>
+        
+        {discount && <div className={style.discountBadge}>-{discount}%</div>}
+        
+        {/* Кнопка теперь внутри обертки изображения */}
+        <button 
+          className={style.addToCartBtn} 
+          onClick={(e) => {
+            e.preventDefault(); // Чтобы клик не переходил по ссылке
+            dispatch(addToCart(productData)); // Исправлено: передаем productData
+          }}
+        >
+          Add to cart
+        </button>
+      </div>
 
-          {discount && (
-            <div className="discount-badge">
-              -{discount}%
-            </div>
-          )}
-        </div>
-
+      <Link to={`/products/${id}`} className={style.info}>
         <h3>{title}</h3>
-
-        <div className="price">
+        <div className={style.price}>
           {discont_price ? (
             <>
-              <span className="new-price">
-                ${discont_price}
-              </span>
-              <span className="old-price">
-                ${price}
-              </span>
+              <span className={style.newPrice}>${discont_price}</span>
+              <span className={style.oldPrice}>${price}</span>
             </>
           ) : (
-            <span>${price}</span>
+            <span className={style.currentPrice}>${price}</span>
           )}
         </div>
       </Link>
-
-
-      <button onClick={() => dispatch(addToCart(product))}>
-        Add to cart
-      </button>
     </div>
-  )
+  );
 }

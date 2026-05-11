@@ -1,0 +1,95 @@
+.productCard {
+  width: 100%;
+  padding: 10px;
+  background: white;
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 280px; /* Высота под ваш дизайн */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.productImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Бейджик скидки */
+.discountBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #0D50FF;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* Кнопка Add to cart — скрыта по умолчанию */
+.addToCartBtn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  background-color: #0D50FF;
+  color: white;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+/* Эффект при наведении на картинку */
+.imageWrapper:hover .addToCartBtn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info h3 {
+  font-size: 16px;
+  margin: 0;
+  color: #333;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.newPrice {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+}
+
+.oldPrice {
+  font-size: 16px;
+  color: #8B8B8B;
+  text-decoration: line-through;
+}
+
+.currentPrice {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.info {
+    text-decoration: none;
+}

@@ -4,6 +4,7 @@ import Footer from '../layouts/Footer';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import CardProduct from '../layouts/CardProduct';
+import style from './AllProducts.module.css';
 
 export default function AllProducts() {
   const [products,setProducts] = useState([])
@@ -20,7 +21,7 @@ export default function AllProducts() {
     
     <div>
       <Header />
-      <div className="products-grid">
+      <div className={style.productsGrid}>
               {products.map((product) => (
                 <CardProduct key={product.id} {...product} />
               ))}

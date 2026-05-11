@@ -7,6 +7,7 @@ import AllProductsByCategories from './pages/AllProductsByCategories'
 import Error from './pages/Error'
 import ProductPage from './pages/ProductPage'
 import AllSAles from './pages/AllSales'
+import AllProducts from './pages/AllProducts'
 import Cart from './pages/Cart'
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/categories/:id' element={<AllProductsByCategories />}/>
         <Route path='/products/:id' element={<ProductPage />}/>
         <Route path='/products/sale' element={<AllSAles />}/>
+        <Route path='/products/all' element={<AllProducts />}/>
         <Route path='/cart' element={<Cart />}/>
         <Route path='*' element={<Error />}/>
       </Routes>
